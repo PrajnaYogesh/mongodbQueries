@@ -33,7 +33,7 @@ or
 {bed_type: { $ne: "Real Bed"}}
 
 
-sample_analytics
+sample_analytic collection
 
 9. greater than : $gt 
 {transaction_count: { $gt: 30}}
