@@ -1,0 +1,51 @@
+
+ sample_restaurants
+ 1.Filter rows that has borough=brooklyn value 
+
+{borough:"Brooklyn"}
+
+
+2. {borough:"Brooklyn",cuisine:"American"}
+
+
+3. OR => $or
+{$or: [{borough:"Queens"}, {cuisine:"Delicatessen"}]}
+
+4.AND  => $and
+{$and: [{borough:"Queens"}, {cuisine:"Delicatessen"}]}
+
+sample_supplies
+5. NOT  => $not  -> find stores that doesnot start with S
+{storeLocation: {$not: /^S.*/ }}
+
+6.NOR   => $nor -> if any rec contains one of the condition donot return it
+{$nor : [{storeLocation : "Denver"},{purchaseMethod:"Phone"}]}
+
+
+
+sample_airbnb
+7. Equals  => $eq
+{name: {$eq:"Ribeira Charming Duplex"}} 
+or
+{name: "Ribeira Charming Duplex"}
+
+8. Not equals  => $ne
+{bed_type: { $ne: "Real Bed"}}
+
+
+sample_analytics
+
+9. greater than : $gt 
+{transaction_count: { $gt: 30}}
+
+10.  fetch scores from nested array with scores greater than 70
+{ "scores.0.score": {"$gte": 70}}
+
+sample_training:companies
+11.includes -> $in
+{name: { $in: ["Wetpaint","facebook"]}}
+
+12.doesnot include => nin
+{category_code: { $nin: ["web"]}}
+
+
